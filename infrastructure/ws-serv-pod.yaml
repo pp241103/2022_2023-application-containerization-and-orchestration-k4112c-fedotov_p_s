@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ws-serv
+  labels: 
+    app: ws-serv
+spec:
+  containers:
+  - name: py-http-serv
+    image: peter263936/connect4-image:0.1
+    ports:
+    - containerPort: 8001

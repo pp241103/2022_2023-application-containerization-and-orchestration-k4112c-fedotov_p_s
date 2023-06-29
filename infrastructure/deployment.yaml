@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: connect4-game
+  labels:
+    app: connect4-game
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: connect4-game
+  template:
+    metadata:
+      labels:
+        app: connect4-game
+    spec:
+      containers:
+      - name: python-http-server
+        image: peter263936/python-http.server:0.1
+        ports:
+        - containerPort: 8080
+      - name: ws-server
+        image: peter263936/connect4-image:0.1
+        ports:
+        - containerPort: 8001
