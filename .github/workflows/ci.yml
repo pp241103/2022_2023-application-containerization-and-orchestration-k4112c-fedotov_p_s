@@ -37,3 +37,7 @@ jobs:
           file: ./code/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/connect4-image:latest
+          
+      -  
+        name: Create Pull Request
+        uses: docker/create-pull-request@v5
