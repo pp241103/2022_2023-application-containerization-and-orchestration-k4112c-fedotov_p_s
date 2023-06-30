@@ -116,6 +116,36 @@ minikube delet
 minikube stop
 ```
 
+## Screenshots
+
+Images in docker hub
+
+![](./Img/screen32.png)  
+
+Just pushed via GitHub actions
+
+![](./Img/screen33.png)  
+
+Succed action
+
+![](./Img/screen34.png)  
+
+Monitoring of py-http-pod
+
+![](./Img/screen35.png)  
+
+Monitoring of websocket server pod
+
+![](./Img/screen36.png)  
+
+The game proccess
+
+![](./Img/screen37.png)  
+
+The game from another player view
+
+![](./Img/38.jpg)
+
 ## Author
 
 Fedotov P
