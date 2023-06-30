@@ -2,7 +2,21 @@
 
 ## Absract
 
-## Content
+This repository contains the Connect 4 game. The functionality of the application provides for the possibility of playing over the network and watching the match by transmitting the corresponding link.
+
+## Technologies
+
+This repository contains the Connect 4 game. The functionality of the application provides for the possibility of playing over the network and watching the match by transmitting the corresponding link.
+
+The application is implemented based on programming languages:  
+- python (backend),  
+- JavaScript (frontend)
+
+Html and css are used for markup.
+
+The WebSockets was used to build communication between backend and frontend.
+
+The kube-prometheus is used to make monitoring
 
 ## Quick start
 
@@ -38,16 +52,72 @@ kubectl port-forward service/grafana -n monitoring --address=0.0.0.0 8100:3000 &
 
 ### Connect 4 application
 
+```
+# Clone repo
+git clone https://github.com/pp241103/2022_2023-application-containerization-and-orchestration-k4112c-fedotov_p_s.git
 
+cd 2022_2023-application-containerization-and-orchestration-k4112c-fedotov_p_s/infrastructure
 
-## Architecture
+# Apply manifests
+kubectl apply -f py-http-serv-pod.yaml
+kubectl apply -f ws-serv-pod.yaml
+kubectl apply -f python-http-server-service.yaml
+kubectl apply -f ws-server-service.yaml
+
+# Port forwarding
+kubectl port-forward service/py-http-serv-service --address 0.0.0.0 8080:8080 &
+kubectl port-forward service/ws-serv-service --address 0.0.0.0 8001:8001 &
+```
+
+Insert to address bar of your browser "http://<your IP address>:8080/"
 
 ## Installation
 
+To get code clone the repo
+
+```
+git clone https://github.com/pp241103/2022_2023-application-containerization-and-orchestration-k4112c-fedotov_p_s.git
+```
+
+Change the directory to infrastructure dir of the local repositry.
+
+```
+cd 2022_2023-application-containerization-and-orchestration-k4112c-fedotov_p_s/infrastructure
+```
+
+Apply manifests for creating http-server and ws-server pods.  
+Then apply manifests for creating services for http-server and ws-server pods.  
+
+```
+kubectl apply -f py-http-serv-pod.yaml
+kubectl apply -f ws-serv-pod.yaml
+kubectl apply -f python-http-server-service.yaml
+kubectl apply -f ws-server-service.yaml
+```
+
+To make services availabe perform port-forwarding
+
+```
+kubectl port-forward service/py-http-serv-service --address 0.0.0.0 8080:8080 &
+kubectl port-forward service/ws-serv-service --address 0.0.0.0 8001:8001 &
+```
+
+Open the game in your browser. Insert to address bar of your browser "http://<your IP address>:8080/"
+
 ## How to use?
 
-## Pull requests
-@ztvgzh
+Open the game in your browser. Insert to address bar of your browser "http://<your IP address>:8080/"
+
+## Delete
+
+```
+# Delete cluster
+minikube delet
+minikube stop
+```
+
 ## Author
+
 Fedotov P
+
 Azatova G
